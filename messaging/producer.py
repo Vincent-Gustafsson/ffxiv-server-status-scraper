@@ -10,5 +10,4 @@ def send_message(message):
     channel.queue_declare(queue='scraping-results')
 
     channel.basic_publish(exchange='', routing_key='scraping-results', body=json.dumps(message))
-    print(" [x] Sent Message")
     connection.close()
