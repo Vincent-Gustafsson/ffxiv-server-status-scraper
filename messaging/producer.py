@@ -3,7 +3,7 @@ import os, json
 import pika
 
 def send_message(message):
-    conn_params = pika.ConnectionParameters(host=os.getenv("CLOUDAQMP_URL"))
+    conn_params = pika.ConnectionParameters(host=os.getenv("CLOUDAMQP_URL"))
     connection = pika.BlockingConnection(conn_params)
     channel = connection.channel()
 
