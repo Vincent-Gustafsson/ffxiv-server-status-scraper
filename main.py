@@ -10,7 +10,7 @@ def main():
     print("starting")
     r = requests.get(URL)
     server_data = scrape(r)
-    send_message("a", "d")
+    send_message(server_data)
 
 
 if __name__ == "__main__":

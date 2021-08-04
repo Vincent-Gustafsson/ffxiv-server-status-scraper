@@ -1,17 +1,14 @@
-import os
+import os, json
 
 import pika
 
-def send_message(queue, message):
-    print("messaging")
-    print(os.environ)
-    print(os.environ.items())
-"""     conn_params = pika.ConnectionParameters(host=os.getenv())
+def send_message(message):
+    conn_params = pika.ConnectionParameters(host=os.getenv("CLOUDAQMP_URL"))
     connection = pika.BlockingConnection(conn_params)
     channel = connection.channel()
 
-    channel.queue_declare(queue='hello')
+    channel.queue_declare(queue='scraping-results')
 
-    channel.basic_publish(exchange='', routing_key='hello', body='Hello World!')
-    print(" [x] Sent 'Hello World!'")
-    connection.close() """
+    channel.basic_publish(exchange='', routing_key='scraping', body=json.dumps(message))
+    print(" [x] Sent Message")
+    connection.close()
