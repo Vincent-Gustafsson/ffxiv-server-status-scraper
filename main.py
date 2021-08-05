@@ -1,4 +1,4 @@
-#!/usr/local/opt/python-3.9.0/bin/python3.9
+#!/usr/local/opt/python-3.9.0/bin python3.9
 import requests
 
 from scraper.scraper import scrape
